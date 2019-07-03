@@ -1,9 +1,6 @@
-import Tone from "tone";
-
 export default function(s) {
   s.props = {};
   s.onSetAppState = () => {};
-  s.synth = new Tone.Synth().toMaster();
 
   s.setup = function() {
     s.createCanvas(window.innerWidth, window.innerHeight / 2);
@@ -118,9 +115,7 @@ export default function(s) {
     if (s.state.currentTime > 1) {
       s.state.currentTime = 0 + s.state.currentTime - 1;
     }
-    if (s.isThereANote(oldCurrentTime, s.state.currentTime)) {
-      s.synth.triggerAttackRelease("C4", 0.1);
-    }
+
     s.state.timeAtLastDraw = s.millis();
     // s.checkNotes();
     s.checkForReset();

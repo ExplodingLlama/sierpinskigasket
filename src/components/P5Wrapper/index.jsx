@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Tone from "tone";
 
-import beatsketch from "./beatsketch";
+import gasketsketch from "./gasketsketch";
 
 export default class P5Wrapper extends Component {
   state = {
@@ -10,7 +9,7 @@ export default class P5Wrapper extends Component {
   };
 
   componentDidMount() {
-    this.canvas = new window.p5(beatsketch, "canvas-container");
+    this.canvas = new window.p5(gasketsketch, "canvas-container");
     this.canvas.props = { ...this.props.p5Props, ...this.state };
     this.canvas.resetDone = this.resetDone;
     this.canvas.onSetAppState = this.props.onSetAppState;
@@ -29,7 +28,6 @@ export default class P5Wrapper extends Component {
   }
 
   playPressed = e => {
-    Tone.context.resume();
     if (!this.state.isPlaying)
       this.setState({ isPlaying: true }, this.updateCanvasProps);
     else this.setState({ isPlaying: false }, this.updateCanvasProps);
