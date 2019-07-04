@@ -25,12 +25,16 @@ export default function(s) {
 
   s.checkForReset = () => {
     if (s.props.isReseting) {
-      s.state.dots = [];
+      s.resetSketch();
       s.resetDone();
     }
   };
 
   s.setup = function() {
+    s.resetSketch();
+  };
+
+  s.resetSketch = () => {
     s.createCanvas(window.innerWidth, (window.innerHeight * 3) / 4);
 
     //setup
@@ -66,5 +70,6 @@ export default function(s) {
       }
       s.state.current = { ...newPoint };
     }
+    s.checkForReset();
   };
 }
