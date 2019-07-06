@@ -49,7 +49,7 @@ export default class P5Wrapper extends Component {
           style={{ width: "100%", textAlign: "center" }}
         />
         <div style={{ padding: 20, margin: 20 }}>
-          <div>Click anywhere on the sketch to change Start Points</div>
+          <div>Click anywhere on the sketch to change the vertices</div>
           <button onClick={this.playPressed} style={styles.buttonStyle}>
             {(this.state.isPlaying && "Stop") || "Play"}
           </button>
