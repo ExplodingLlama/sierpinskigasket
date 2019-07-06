@@ -23,7 +23,7 @@ export default function(s) {
     }
   };
 
-  s.mousePressed = () => {
+  s.mouseClicked = () => {
     if (s.mouseY < s.state.height) {
       s.state.p1 = s.state.p2;
       s.state.p2 = s.state.p3;
