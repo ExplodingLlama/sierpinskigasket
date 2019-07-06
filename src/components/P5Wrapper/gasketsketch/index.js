@@ -23,6 +23,18 @@ export default function(s) {
     }
   };
 
+  s.mousePressed = () => {
+    if (s.mouseY < s.state.height) {
+      s.state.p1 = s.state.p2;
+      s.state.p2 = s.state.p3;
+      s.state.p3 = {
+        x: s.mouseX,
+        y: s.mouseY
+      };
+    }
+    s.resetSketch();
+  };
+
   s.checkForReset = () => {
     if (s.props.isReseting) {
       s.resetSketch();
@@ -42,9 +54,10 @@ export default function(s) {
     s.stroke(255, 221, 89);
     s.fill(255, 221, 89);
 
-    s.point(s.state.p1.x, s.state.p1.y);
-    s.point(s.state.p2.x, s.state.p2.y);
-    s.point(s.state.p3.x, s.state.p3.y);
+    s.circle(s.state.p1.x, s.state.p1.y, 3);
+    s.circle(s.state.p2.x, s.state.p2.y, 3);
+    s.circle(s.state.p3.x, s.state.p3.y, 3);
+    s.state.current = s.state.p1;
   };
 
   s.draw = function() {
